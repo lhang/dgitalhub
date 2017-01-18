@@ -1,0 +1,11 @@
+{
+    "webui": {
+        "username": "",
+        "password": "",
+        "need-auth": true,
+        "port": 35090
+    },
+    "result_worker": {
+        "result_cls": "my_result_worker.DgitalHubResultWorker"
+    }
+}

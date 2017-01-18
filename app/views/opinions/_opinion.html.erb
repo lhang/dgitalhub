@@ -1,0 +1,20 @@
+<li class="media">
+  <div class="media-left pull-left">
+    <a href="#">
+      <!-- <img class="media-object" src="https://secure.gravatar.com/avatar/415aa630d8a0c1467e8935bf6065bde0?s=96&d=mm&r=x" alt="..."> -->
+      <canvas width="60" height="60" data-jdenticon-hash="<%= Digest::SHA1.hexdigest(opinion.name || "dgitalhub") %>"></canvas>
+    </a>
+  </div>
+  <div class="media-body media-right">
+    <h4 class="media-heading">
+      <span><strong> <%= opinion.name %> </strong></span>
+      <span class="text-muted"> <small><%= opinion.created_at %> </small> </span>
+    </h4>
+    <p>
+      <%= opinion.content %>
+    </p>
+    <% if opinion.child_opinions.first %>
+      <%= render "opinion", collection: opinion.child_opinions %>
+    <% end %>
+  </div>
+</li>

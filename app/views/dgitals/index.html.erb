@@ -1,0 +1,83 @@
+<%- model_class = Dgital -%>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-9">
+    <div class="panel">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="<%= params[:filter]? '' : 'active' %>"><a href="/">全部</a></li>
+        <% @source_names.each do |source_name| %>
+        <li role="presentation" class="<%= params[:filter]==source_name.from_site ? 'active' : '' %>">
+          <%= link_to source_name.from_site, dgitals_path(filter: source_name.from_site, search_str:params[:search_str]) %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-9">
+    <%= div_for(@dgitals, class: 'col-xs-6 col-md-4 digitals') do |dgital| %>
+    <div class="thumbnail">
+      <% if dgital.image_url %>
+      <%= image_tag(dgital.image_url)  %>
+      <% else %>
+      <img src="default_img.jpg" alt="">
+      <% end %>
+      <div class="caption">
+        <h5 class="media-heading"><%= link_to dgital.title, get_dgital_path(dgital), :target => "_blank" %></h5>
+        <p class="text-muted"><small> <%= dgital.from_site %>-<%= dgital.publish_time.strftime('%Y-%m-%d %H:%M') %></small></p>
+      </div>
+    </div>
+    <% end %>
+
+    <nav class="pull-right">
+      <%= paginate @dgitals %>
+    </nav>
+  </div>
+
+  <div class="col-xs-6 col-sm-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">微信公众号</h3>
+      </div>
+      <div class="list-group">
+        <img src="weixin-icon.jpg" class="img-responsive" alt="Responsive image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-6 col-sm-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">热门搜索</h3>
+      </div>
+      <div class="list-group">
+
+        <% @search_actions.each do |action| %>
+        <%= link_to action[0], dgitals_path(search_str: action[0]), class: 'list-group-item'%>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-3">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- dgthub侧边 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5694875791967987"
+     data-ad-slot="3979345959"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+
+
+
+<div class="row">
+
+</div>

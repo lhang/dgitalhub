@@ -1,0 +1,50 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version 2.4
+
+* System dependencies
+    $ sudo apt-get install imagemagick
+    $ sudo pip install scrapy pyspider
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+# 部署注意事项：
+2. 修改文件保存方式
+
+项目介绍：一个爬取二手数码论坛，然后聚合到数据库，再用Ruby on Rails展示出来
+爬取间隔：5min
+爬虫使用pyspider，另外还有一份爬虫代码是用scrapy写的，但是pyspider相比更利于定时更新
+
+# todo
+
+- 搜索
+- 数据分析
+- 来源投票
+- admin
+
+- 微信公众号 关键字订阅
+
+# future
+- 手机信息聚合
+- 发布二手
